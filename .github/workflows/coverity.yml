@@ -41,3 +41,14 @@ jobs:
         cov-analyze --dir idir --ticker-mode none --strip-path $GITHUB_WORKSPACE $CHECKERS
         cov-commit-defects --dir idir --ticker-mode none --url $COV_URL --stream $COVERITY_PROJECT-${GITHUB_REF##*/} --scm git \
           --description $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID --target $RUNNER_OS --version $GITHUB_SHA
+        cov-format-errors --dir idir --json-output-v7 coverity-results.json
+    - name: Convert Coverity Results to SARIF
+      uses: gautambaghel/coverity-scan-results-to-sarif@1.0.0
+      with:
+        pipeline-results-json: coverity-results.json
+        output-results-sarif: coverity-results.sarif
+        
+    - name: Upload SARIF file to GitHub UI
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: coverity-results.sarif
