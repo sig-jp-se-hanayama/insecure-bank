@@ -16,7 +16,7 @@ jobs:
       COVERITY_PASSPHRASE: ${{ secrets.COVERITY_PASSPHRASE }}
       CSA: cov-analysis-linux64-2021.06
       COVERITY_PROJECT: github-io-sample
-      BLDCMD: \mvn -B package
+      BLDCMD: mvn -B package
       CHECKERS: --webapp-security
 
     steps:
