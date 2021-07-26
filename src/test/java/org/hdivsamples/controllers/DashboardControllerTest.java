@@ -34,7 +34,7 @@ public class DashboardControllerTest {
 
 	@Before
 	public void setup() {
-		//test
+		//test2
 		mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 		principal = new UsernamePasswordAuthenticationToken("john", "john");
 	}
