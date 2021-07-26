@@ -18,7 +18,7 @@ jobs:
       COVERITY_PROJECT: github-io-sample
       BLDCMD: mvn -B package
       CHECKERS: --webapp-security
-      COVERITY_TRIAL_PASS: ${{ secrets.coverity_trial_pass }}
+      COVERITY_TRIAL_RESULTS_PASSPHRASE: ${{ secrets.coverity_trial_pass }}
 
     steps:
     - uses: actions/checkout@v2
