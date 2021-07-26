@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Seeker
+
+on: [push]
+jobs:
+  Seeker:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ 8 ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Java
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ matrix.java }}
+        java-package: jdk
+        architecture: x64
+    - name: Build
+      run: mvn -B package  
+    - name: Run
+      run: mvn cargo:run
+    - name: Check
+      run: curl http://localhost:8080/insecure-bank/
