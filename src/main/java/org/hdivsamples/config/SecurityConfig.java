@@ -22,7 +22,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
             .authenticationProvider(new CustomAuthenticationProvider(this.accountDao));
 	}
-    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
     	http
@@ -43,5 +42,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        	.logoutUrl("/j_spring_security_logout")
 	        	.logoutSuccessUrl("/login?logout=true");
     }
-    
+    /*
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+    	http
+	        .authorizeRequests()
+	        	.antMatchers("/resources/**").permitAll()
+	            .antMatchers("/**").authenticated()
+	            .anyRequest().permitAll()
+	            .and()
+	        .formLogin()
+	        	.loginPage("/login")
+	        	.defaultSuccessUrl("/dashboard")
+	        	.successHandler(new SimpleUrlAuthenticationSuccessHandler("/"))
+	        	.failureUrl("/login?authenticationFailure=true")
+	        	.permitAll()
+	        	.and()
+	        .csrf().disable()
+	        .logout()
+	        	.logoutUrl("/j_spring_security_logout")
+	        	.logoutSuccessUrl("/login?logout=true");
+    }
+    */    
 }
