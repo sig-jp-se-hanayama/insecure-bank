@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        	.failureUrl("/login?authenticationFailure=true")
 	        	.permitAll()
 	        	.and()
-	        .csrf()
+	        .csrf();
     }
     /*
     @Override
