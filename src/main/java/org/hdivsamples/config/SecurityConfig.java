@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	        	.failureUrl("/login?authenticationFailure=true")
 	        	.permitAll()
 	        	.and()
-	        .csrf().disable()
+	        .csrf()
 	        .logout()
 	        	.logoutUrl("/j_spring_security_logout")
 	        	.logoutSuccessUrl("/login?logout=true");
