@@ -32,10 +32,10 @@ public class SpringWebInit extends AbstractAnnotationConfigDispatcherServletInit
 
 		super.onStartup(container);
 
-		// Spring context listener
+		// Spring context listener.
 		container.addListener(new RequestContextListener());
 
-		// Spring Security Filter
+		// Spring Security Filter.
 		container.addFilter("springSecurityFilterChain", DelegatingFilterProxy.class)
 				.addMappingForUrlPatterns(EnumSet.of(DispatcherType.REQUEST), false, "/*");
 	}
