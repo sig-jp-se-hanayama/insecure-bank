@@ -18,7 +18,7 @@ jobs:
 
         ### Use below configuration to set specific detect environment variables
         env:
-          DETECT_PROJECT_NAME: 'HanayamaActionsTest'
+          DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
         with:
           blackduck_url: ${{ vars.BLACKDUCK_URL }}
           blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
@@ -49,7 +49,7 @@ jobs:
         uses: synopsys-sig/synopsys-action@v1.9.0
           ### Use below configuration to set specific detect environment variables
         env:
-           DETECT_PROJECT_NAME: 'HanayamaActionsTest'
+           DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
         with:
          blackduck_url: ${{ vars.BLACKDUCK_URL }}
          blackduck_token: ${{ secrets.BLACKDUCK_TOKEN }}
