@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.hdiv</groupId>
 	<artifactId>insecure-bank</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.1fe</version>
 	<packaging>war</packaging> 
 	<name>Insecure Bank</name>
 
@@ -86,7 +86,17 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 	</dependencies>
 
 
